@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {App} from './UseContext';
+// import {App} from './UseContext';
 // import { App } from './UseCallback'
 // import {App} from './UseRef';
-
+import  HomeManager  from './tweak-hooks/HomeManager'
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <HomeManager/>
   </React.StrictMode>,
   document.getElementById('root')
 )
