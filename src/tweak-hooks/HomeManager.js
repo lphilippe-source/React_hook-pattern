@@ -6,8 +6,9 @@ import Detail from "./views/Detail"
 import HookGetBlog from "./provider/hookGetBlog"
 import { HomeContext } from "./provider/HomeContext"
 import { useState  } from "react"
+import React from 'react'
 
-const HomeManager = () => {
+const HomeManager = React.memo(() => {
     const [blogLists, setBlogLists] = useState(null)
     // const hookGetBlog = useMemo(() => , [blogLists])
     return (
@@ -34,5 +35,5 @@ const HomeManager = () => {
             </HomeContext.Provider>
         </div>
     )
-}
+})
 export default HomeManager;

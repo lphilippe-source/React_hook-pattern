@@ -1,4 +1,5 @@
-const Detail = ({content,toggleContent}) => {
+import React from 'react'
+const Detail = React.memo(({content,toggleContent}) => {
     console.log('rerender Details')
     return (
         <div className="blog-details">
@@ -7,6 +8,6 @@ const Detail = ({content,toggleContent}) => {
             <button onClick={toggleContent}>fermer</button> 
         </div>
     )
-}
+})
  
 export default Detail;

@@ -1,8 +1,9 @@
 import { useState, useMemo, useContext, useRef, useCallback } from 'react'
 // import {UserContext} from "../services/UserContext"
 import { HomeContext } from './provider/HomeContext'
+import React from 'react'
 
-const HomeLogic = ({ children }) => {
+const HomeLogic = React.memo(({ children }) => {
 
     const title = useRef("all blogs!")
     const url = 'https://jsonplaceholder.typicode.com/comments'
@@ -27,12 +28,13 @@ const HomeLogic = ({ children }) => {
         setShowContent(!showContent)
         setContent(customEvent)
     }, [setShowContent, setContent, showContent])
+    
     const mapList = useMemo(() =>
         bl && bl.map(
             (list) => {
                 return returnList(list, toggleContent)
             }
-        ), [bl])
+        ), [bl,toggleContent,returnList])
 
 
     const detailOrList = useCallback(() => {
@@ -49,6 +51,6 @@ const HomeLogic = ({ children }) => {
             {/* {deleteButton ? returnHookDelete([deleteUrl,options]) : detailOrList()} */}
         </>
     )
-}
+})
 
 export default HomeLogic;

@@ -1,4 +1,6 @@
-const List = ({list,onClick,deleteButton}) => {
+import React from 'react'
+
+const List = React.memo(({list,onClick,deleteButton}) => {
     console.log('rerender List')
     return (
         <div onClick={()=>onClick(list)} className="blog-preview">
@@ -7,6 +9,6 @@ const List = ({list,onClick,deleteButton}) => {
         <button onClick={()=>deleteButton(list.id)}>Delete</button>
         </div>
     )
-}
+})
  
 export default List;

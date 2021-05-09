@@ -1,6 +1,7 @@
 import { useFetch } from '../../services/useFetch'
 import { useContext, useEffect } from 'react'
 import { HomeContext } from "./HomeContext"
+import React from 'react'
 
 const HookGetBlog = ({ params }) => {
 
