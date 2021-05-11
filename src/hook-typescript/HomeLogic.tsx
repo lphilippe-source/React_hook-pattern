@@ -2,13 +2,13 @@ import { useState, useMemo, useContext, useRef, useCallback } from "react"
 // import {UserContext} from "../services/UserContext"
 import { HomeContext } from "./provider/HomeContext"
 import React from "react"
-import { FetchedData } from "./HomeManager"
+import { Data } from "./HomeManager"
 // import { PropsTitle } from './HomeManager'
 
 type Props = [
 	returnTitle?: (title: string) => JSX.Element,
 	returnHooksGetBlog?: (...p) => JSX.Element,
-	returnList?: (list: FetchedData, toggleContent: object) => JSX.Element
+	returnList?: (list: Data, toggleContent: object) => JSX.Element
 	// returnDetail?: (...p)=>ReactNode
 ]
 type Child = {
@@ -39,7 +39,7 @@ const HomeLogic = React.memo(({ children }: Child) => {
 	const mapList = useMemo(
 		() =>
 			bl &&
-			bl.map((list) => {
+			bl.map((list: Data) => {
 				return returnList(list, toggleContent)
 			}),
 		[bl, toggleContent, returnList]
