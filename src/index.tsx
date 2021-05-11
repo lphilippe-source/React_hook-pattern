@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import React from "react"
+import ReactDOM from "react-dom"
+// import HomeManager from "./hook-typescript/HomeManager"
+import "./index.css"
 // import {App} from './UseContext';
 // import { App } from './UseCallback'
 // import {App} from './UseRef';
 import  HomeManager  from './tweak-hooks/HomeManager'
 ReactDOM.render(
-  <React.StrictMode>
-    {/* <App /> */}
-    <HomeManager/>
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<HomeManager />
+	</React.StrictMode>,
+	document.getElementById("root")
 )
 
 // If you want to start measuring performance in your app, pass a function

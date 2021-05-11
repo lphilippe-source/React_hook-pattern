@@ -1,7 +1,9 @@
-import { useState, useMemo, useContext, useRef, useCallback } from 'react'
+import { useState, useMemo, useContext, useRef, useCallback, ReactNode } from 'react'
 // import {UserContext} from "../services/UserContext"
 import { HomeContext } from './provider/HomeContext'
 import React from 'react'
+
+
 
 const HomeLogic = React.memo(({ children }) => {
 
@@ -28,18 +30,18 @@ const HomeLogic = React.memo(({ children }) => {
         setShowContent(!showContent)
         setContent(customEvent)
     }, [setShowContent, setContent, showContent])
-    
+
     const mapList = useMemo(() =>
         bl && bl.map(
             (list) => {
                 return returnList(list, toggleContent)
             }
-        ), [bl,toggleContent,returnList])
+        ), [bl, toggleContent, returnList])
 
 
     const detailOrList = useCallback(() => {
         return showContent ? returnDetail(content, toggleContent) : mapList
-    }, [mapList,toggleContent]
+    }, [mapList, toggleContent]
     )
     const returnT = useCallback(() => returnTitle(title.current), [returnTitle])
     return (
@@ -48,6 +50,7 @@ const HomeLogic = React.memo(({ children }) => {
             {returnT()}
             { returnHookGetBlog([url, null])}
             {detailOrList()}
+            {/* {mapList&&mapList} */}
             {/* {deleteButton ? returnHookDelete([deleteUrl,options]) : detailOrList()} */}
         </>
     )
