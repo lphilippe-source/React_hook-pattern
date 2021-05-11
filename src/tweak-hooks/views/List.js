@@ -11,4 +11,4 @@ const List = React.memo(({ list, onClick, deleteButton }) => {
     )
 })
 
-export default List;
+export default List

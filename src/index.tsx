@@ -1,11 +1,11 @@
 import React from "react"
 import ReactDOM from "react-dom"
-// import HomeManager from "./hook-typescript/HomeManager"
+import HomeManager from "./hook-typescript/HomeManager"
 import "./index.css"
 // import {App} from './UseContext';
 // import { App } from './UseCallback'
 // import {App} from './UseRef';
-import  HomeManager  from './tweak-hooks/HomeManager'
+// import  HomeManager  from './tweak-hooks/HomeManager'
 ReactDOM.render(
 	<React.StrictMode>
 		<HomeManager />
