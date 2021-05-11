@@ -33,6 +33,9 @@ const HomeManager = () => {
 							{fetchedData}
 						</List>
 					)}
+					{(content:Data,toggleContent)=>(
+						<Detail>{content}{toggleContent}</Detail>
+					)}
 				</HomeLogic>
 			</HomeContext.Provider>
 		</div>

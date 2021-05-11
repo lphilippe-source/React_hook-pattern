@@ -8,8 +8,8 @@ import { Data } from "./HomeManager"
 type Props = [
 	returnTitle?: (title: string) => JSX.Element,
 	returnHooksGetBlog?: (...p) => JSX.Element,
-	returnList?: (list: Data, toggleContent: object) => JSX.Element
-	// returnDetail?: (...p)=>ReactNode
+	returnList?: (list: Data, toggleContent: object) => JSX.Element,
+	returnDetail?: (content,toggleContent)=>JSX.Element
 ]
 type Child = {
 	children: Props
@@ -21,7 +21,7 @@ const HomeLogic = React.memo(({ children }: Child) => {
 
 	const { blogLists } = useContext(HomeContext)
 	const bl = useMemo(() => blogLists, [blogLists])
-	const [returnTitle, returnHookGetBlog, returnList]: Props = children
+	const [returnTitle, returnHookGetBlog, returnList,returnDetail]: Props = children
 
 	const [content, setContent] = useState("")
 	const [showContent, setShowContent] = useState(false)
@@ -45,10 +45,10 @@ const HomeLogic = React.memo(({ children }: Child) => {
 		[bl, toggleContent, returnList]
 	)
 
-	// const detailOrList = useCallback(() => {
-	//     return showContent ? returnDetail( [content],[toggleContent]) : mapList
-	// }, [mapList,toggleContent]
-	// )
+	const detailOrList = useCallback(() => {
+	    return showContent ? returnDetail( content,toggleContent) : mapList
+	}, [mapList,toggleContent]
+	)
 	const returnT = useCallback(
 		() => returnTitle(titleRef.current),
 		[returnTitle]
@@ -58,8 +58,8 @@ const HomeLogic = React.memo(({ children }: Child) => {
 			{/* {returnTitle(title.current)} */}
 			{returnT()}
 			{returnHookGetBlog([url, null])}
-			{/* {detailOrList()} */}
-			{mapList && mapList}
+			{detailOrList()}
+			{/* {mapList && mapList} */}
 			{/* {deleteButton ? returnHookDelete([deleteUrl,options]) : detailOrList()} */}
 		</>
 	)
