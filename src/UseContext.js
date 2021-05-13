@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
-const { Provider, Consumer } = React.createContext()
+const { Provider, Consumer } = React.createContext(null)
 
 export const App = () => {
 

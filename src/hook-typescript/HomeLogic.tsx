@@ -1,9 +1,7 @@
 import { useState, useMemo, useContext, useRef, useCallback } from "react"
-// import {UserContext} from "../services/UserContext"
 import { HomeContext } from "./provider/HomeContext"
 import React from "react"
 import { Data } from "./HomeManager"
-// import { PropsTitle } from './HomeManager'
 
 type Props = [
 	returnTitle?: (title: string) => JSX.Element,
@@ -15,7 +13,7 @@ type Child = {
 	children: Props
 }
 
-const HomeLogic = React.memo(({ children }: Child) => {
+const HomeLogic = ({ children }: Child) => {
 	const titleRef = useRef("all blogs!")
 	const url = "https://jsonplaceholder.typicode.com/comments"
 
@@ -63,6 +61,6 @@ const HomeLogic = React.memo(({ children }: Child) => {
 			{/* {deleteButton ? returnHookDelete([deleteUrl,options]) : detailOrList()} */}
 		</>
 	)
-})
+}
 
 export default HomeLogic

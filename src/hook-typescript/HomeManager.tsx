@@ -3,13 +3,8 @@ import Title from "./views/Title"
 import HomeLogic from "./HomeLogic"
 import Detail from "./views/Detail"
 import HookGetBlog from "./provider/hookGetBlog"
-import { HomeContext } from "./provider/HomeContext"
-import React, { Dispatch, useState } from "react"
+import BlogProvider from "./provider/HomeContext"
 
-// export interface FetchedData {
-// 	list: Data
-// 	id: number
-// }
 export interface Data {
 	name: string
 	email: string
@@ -18,10 +13,9 @@ export interface Data {
 }
 
 const HomeManager = () => {
-	const [blogLists, setBlogLists]:[Data, Dispatch<any>] = useState(null)
 	return (
 		<div className="Home">
-			<HomeContext.Provider value={{ blogLists, setBlogLists }}>
+			<BlogProvider>
 				<HomeLogic>
 					{(title: string) => <Title>{title}</Title>}
 
@@ -33,11 +27,14 @@ const HomeManager = () => {
 							{fetchedData}
 						</List>
 					)}
-					{(content:Data,toggleContent)=>(
-						<Detail>{content}{toggleContent}</Detail>
+					{(content: Data, toggleContent) => (
+						<Detail>
+							{content}
+							{toggleContent}
+						</Detail>
 					)}
 				</HomeLogic>
-			</HomeContext.Provider>
+			</BlogProvider>
 		</div>
 	)
 }
