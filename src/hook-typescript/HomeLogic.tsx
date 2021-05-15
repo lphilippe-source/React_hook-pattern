@@ -12,6 +12,7 @@ type Props = [
 type Child = {
 	children: Props
 }
+const functionsSet = new Set()
 
 const HomeLogic = ({ children }: Child) => {
 	const titleRef = useRef("all blogs!")
@@ -24,15 +25,14 @@ const HomeLogic = ({ children }: Child) => {
 	const [content, setContent] = useState("")
 	const [showContent, setShowContent] = useState(false)
 	console.log("rerender global component")
+	// console.log(showContent)
+	// let showContent = useRef(true)
+	// const count = useRef(0)
 
-	const toggleContent = useCallback(
-		(customEvent) => {
-			console.log("toggleContent")
-			setShowContent(!showContent)
-			setContent(customEvent)
-		},
-		[setShowContent, setContent, showContent]
-	)
+	const toggleContent = useCallback((customEvent) => {
+		setContent(customEvent)
+		setShowContent((s) => !s)
+	}, [])
 
 	const mapList = useMemo(
 		() =>
@@ -43,9 +43,17 @@ const HomeLogic = ({ children }: Child) => {
 		[bl, toggleContent, returnList]
 	)
 
-	const detailOrList = useCallback(() => {
-		return showContent ? returnDetail(content, toggleContent) : mapList
-	}, [mapList, toggleContent])
+	const returnD = useMemo(() => {
+		return returnDetail(content, toggleContent)
+	}, [content, toggleContent, returnDetail])
+
+	const detailOrList = () => {
+		return showContent ? returnD : mapList
+	}
+
+	functionsSet.add(detailOrList)
+	console.log(functionsSet)
+
 	const returnT = useCallback(() => returnTitle(titleRef.current), [returnTitle])
 	return (
 		<Fragment>
