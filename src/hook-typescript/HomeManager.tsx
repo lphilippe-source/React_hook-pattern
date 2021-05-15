@@ -6,7 +6,8 @@ import HookGetBlog from "./provider/hookGetBlog"
 import BlogProvider from "./provider/HomeContext"
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { css, jsx } from "@emotion/react"
+import { jsx } from "@emotion/react"
+import { container } from "./views/css/styles"
 
 export interface Data {
 	name: string
@@ -14,15 +15,6 @@ export interface Data {
 	body: string
 	id: number
 }
-
-const container = css`
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
-`
 
 const HomeManager = () => {
 	return (

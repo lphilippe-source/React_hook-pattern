@@ -1,6 +1,5 @@
 import { useState, useMemo, useContext, useRef, useCallback, Fragment } from "react"
 import { HomeContext } from "./provider/HomeContext"
-import React from "react"
 import { Data } from "./HomeManager"
 
 type Props = [
@@ -25,9 +24,6 @@ const HomeLogic = ({ children }: Child) => {
 	const [content, setContent] = useState("")
 	const [showContent, setShowContent] = useState(false)
 	console.log("rerender global component")
-	// console.log(showContent)
-	// let showContent = useRef(true)
-	// const count = useRef(0)
 
 	const toggleContent = useCallback((customEvent) => {
 		setContent(customEvent)

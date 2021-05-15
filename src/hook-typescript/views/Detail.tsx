@@ -2,25 +2,13 @@ import React, { useEffect, useRef } from "react"
 import { Data } from "../HomeManager"
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { css, jsx } from "@emotion/react"
-import { card1 } from "./List"
+import { jsx } from "@emotion/react"
+import { card1 } from "./css/styles"
 
 type Props = [content: Data, toggleContent: (list: Data) => Data]
 type Child = {
 	children: Props
 }
-// const card: object = {
-// 	display: "block",
-// 	position: "relative" as "relative",
-// 	maxWidth: "262px",
-// 	backgroundColor: "#f2f8f9",
-// 	borderRadius: "4px",
-// 	padding: "32px 24px",
-// 	margin: "12px",
-// 	textDecoration: "none",
-// 	zIndex: 0,
-// 	overflow: "hidden",
-// }
 const Detail = React.memo(({ children }: Child) => {
 	console.log("rerender Details")
 	const [content, toggleContent]: Props = children
