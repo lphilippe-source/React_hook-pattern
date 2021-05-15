@@ -18,7 +18,7 @@ const HomeLogic = ({ children }: Child) => {
 	const titleRef = useRef("all blogs!")
 	const url = "https://jsonplaceholder.typicode.com/comments"
 
-	const { blogLists } = useContext(HomeContext)
+	const { blogLists }: { blogLists: Data[] } = useContext(HomeContext)
 	const bl = useMemo(() => blogLists, [blogLists])
 	const [returnTitle, returnHookGetBlog, returnList, returnDetail]: Props = children
 
