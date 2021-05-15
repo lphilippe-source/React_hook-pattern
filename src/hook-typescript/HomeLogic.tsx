@@ -39,15 +39,15 @@ const HomeLogic = ({ children }: Child) => {
 		[bl, toggleContent, returnList]
 	)
 
-	const returnD = useMemo(() => {
+	const returnD = () => {
 		return returnDetail(content, toggleContent)
-	}, [content, toggleContent, returnDetail])
-
-	const detailOrList = () => {
-		return showContent ? returnD : mapList
 	}
 
-	functionsSet.add(detailOrList)
+	const detailOrList = () => {
+		return showContent ? returnD() : mapList
+	}
+
+	functionsSet.add(returnD)
 	console.log(functionsSet)
 
 	const returnT = useCallback(() => returnTitle(titleRef.current), [returnTitle])
