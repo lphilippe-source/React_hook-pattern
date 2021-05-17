@@ -72,28 +72,28 @@ const goArrow = css`
 	color: white;
 	font-family: courier, sans;
 `
-const container = css`
+const blogContainer = css`
 	width: 50%;
-	height: auto;
+	height: 100%;
 	display: flex;
 	// flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 `
-const container2 = css`
+const globalContainer = css`
 	width: 100%;
-	height: auto;
+	height: 100%;
 	display: flex;
 	// flex-wrap: wrap;
 	// align-items: center;
 	// justify-content: center;
-	// flex-direction: column;
+	flex-direction: row;
 `
-const userList = css`
+const userListContainer = css`
 	width: 50% !important;
 	color: black;
 	background-color: #dfdfdf;
 `
 
-export { card1, container2, container, p, goArrow, goCorner, userList }
+export { card1, globalContainer, blogContainer, p, goArrow, goCorner, userListContainer }

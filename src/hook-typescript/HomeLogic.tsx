@@ -51,6 +51,7 @@ const HomeLogic = ({ children }: Child) => {
 	console.log(functionsSet)
 
 	const returnT = useCallback(() => returnTitle(titleRef.current), [returnTitle])
+
 	return (
 		<Fragment>
 			{/* {returnTitle(title.current)} */}

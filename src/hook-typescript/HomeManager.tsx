@@ -8,7 +8,7 @@ import React from "react"
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from "@emotion/react"
-import { container, container2, userList } from "./views/css/styles"
+import { blogContainer, globalContainer, userListContainer } from "./views/css/styles"
 
 export interface Data {
 	name: string
@@ -19,15 +19,15 @@ export interface Data {
 
 const HomeManager = () => {
 	return (
-		<div css={container2}>
-			<div css={container}>
+		<div css={globalContainer}>
+			<div css={blogContainer}>
 				<BlogProvider>
 					<HomeLogic>
 						{(title: string) => <Title>{title}</Title>}
 
 						{(fetchParams) => <HookGetBlog params={fetchParams} />}
 
-						{(fetchedData: Data, toggleContent: object) => (
+						{(fetchedData: Data, toggleContent: (list: Data) => void) => (
 							<List key={fetchedData.id}>
 								{toggleContent}
 								{fetchedData}
@@ -42,7 +42,7 @@ const HomeManager = () => {
 					</HomeLogic>
 				</BlogProvider>
 			</div>
-			<div css={userList}>salut les gens!</div>
+			<div css={userListContainer}>salut les gens!</div>
 		</div>
 	)
 }
