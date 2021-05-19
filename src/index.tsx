@@ -1,6 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import HomeManager from "./hook-typescript/HomeManager"
+import App from "./css-grid/App"
+// import HomeManager from "./hook-typescript/HomeManager"
 import "./index.css"
 // import App from "./UseReducer"
 // import {App} from './UseContext';
@@ -9,8 +10,8 @@ import "./index.css"
 // import  HomeManager  from './tweak-hooks/HomeManager'
 ReactDOM.render(
 	<React.StrictMode>
-		<HomeManager />
-		{/* <App></App> */}
+		{/* <HomeManager /> */}
+		<App />
 	</React.StrictMode>,
 	document.getElementById("root")
 )

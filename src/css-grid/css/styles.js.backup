@@ -1,0 +1,42 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { css } from "@emotion/react"
+
+export const grid = css`
+	border: 1px solid black;
+`
+export const row = css`
+	display: flex;
+	border: 1px solid black;
+`
+let flex = (props) => props.size
+
+export const col = css`
+	border: 5px solid black;
+	flex: ${flex};
+`
+export const Col = (props, children) => {
+	console.log(props.size)
+	return (
+		<div
+			css={css`
+				border: 5px solid black;
+				flex: ${props.size};
+			`}
+		>
+			{children}
+		</div>
+	)
+}
+export const Row = (children) => {
+	console.log(children)
+	return (
+		<div
+			css={css`
+				${row}
+			`}
+		>
+			{children}
+		</div>
+	)
+}
