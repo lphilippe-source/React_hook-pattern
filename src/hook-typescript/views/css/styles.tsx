@@ -73,21 +73,21 @@ const goArrow = css`
 	font-family: courier, sans;
 `
 const blogContainer = css`
-	width: 50%;
+	width: 75%;
 	height: 100%;
 	display: flex;
-	// flex-wrap: wrap;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
-	flex-direction: column;
+	/* flex-direction: column; */
 `
 const globalContainer = css`
 	width: 100%;
 	height: 100%;
 	display: flex;
-	// flex-wrap: wrap;
-	// align-items: center;
-	// justify-content: center;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
 	flex-direction: row;
 `
 const userListContainer = css`

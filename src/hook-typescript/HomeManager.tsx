@@ -42,7 +42,7 @@ const HomeManager = () => {
 					</HomeLogic>
 				</BlogProvider>
 			</div>
-			<div css={userListContainer}>salut les gens!</div>
+			{/* <div css={userListContainer}>salut les gens!</div> */}
 		</div>
 	)
 }

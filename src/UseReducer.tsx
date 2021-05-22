@@ -1,6 +1,6 @@
 import { useReducer } from "react"
 
-const App = () => {
+const Reducer = () => {
 	console.log("rerender reducer")
 	const reducer = (state, action) => {
 		switch (action.type) {
@@ -15,7 +15,7 @@ const App = () => {
 	}
 	const [toggleButton, dispatch] = useReducer(reducer, {
 		count: 10,
-		count2: 20
+		count2: 20,
 	})
 	return (
 		<>
@@ -28,4 +28,4 @@ const App = () => {
 	)
 }
 
-export default App
+export default Reducer
